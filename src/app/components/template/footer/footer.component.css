@@ -1,0 +1,19 @@
+.footer {
+  display: flex;
+  position: fixed;
+  background-color: #eb3439;
+  color: #ffffff;
+  bottom: 0;
+  justify-content: flex-end;
+  min-height: 30px !important;
+  height: 30px !important;
+}
+
+.footer span {
+  font-size: .8rem;
+  font-weight: 400;
+}
+
+.footer .icons {
+  color: #faab2e;
+}
