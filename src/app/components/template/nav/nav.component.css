@@ -1,0 +1,12 @@
+.sidenav {
+    background-image:'assets/img/background.png';
+    width: 200px;
+}
+
+.sidenav a {
+    color: #088887;
+}
+
+.sidenav mat-icon {
+    padding-right: 10px;
+}
