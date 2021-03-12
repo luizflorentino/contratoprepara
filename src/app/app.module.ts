@@ -18,6 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { AlunoCrudComponent } from './views/aluno-crud/aluno-crud.component';
+import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-create.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AlunoCrudComponent } from './views/aluno-crud/aluno-crud.component';
     FooterComponent,
     NavComponent,
     HomeComponent,
-    AlunoCrudComponent
+    AlunoCrudComponent,
+    AlunoCreateComponent
   ],
   imports: [
     BrowserModule,
