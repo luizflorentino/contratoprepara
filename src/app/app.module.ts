@@ -8,8 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //app components
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
+import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-create.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
+import { AlunoCrudComponent } from './views/aluno-crud/aluno-crud.component';
 
 // material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -17,8 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
-import { AlunoCrudComponent } from './views/aluno-crud/aluno-crud.component';
-import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-create.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-crea
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
