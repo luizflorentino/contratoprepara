@@ -9,5 +9,5 @@ export interface Endereco {
     cidade: string;
     estado: string;
     complemento?: string;
-    link: string;
+    link?: string;
 }

@@ -3,5 +3,5 @@ export interface Profissao {
     criadoEm?: string;
     atualizadoEm?: string;
     descricao: string;
-    link: string;
+    link?: string;
 }

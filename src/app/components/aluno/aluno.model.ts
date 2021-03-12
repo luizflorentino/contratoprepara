@@ -17,7 +17,7 @@ export interface Aluno {
     rg?: string;
     orgaoRg?: string;
     cpf?: string;
-    link: string;
+    link?: string;
     profissao: Profissao;
     escolaridade: Escolaridade;
     endereco: Endereco;

@@ -3,5 +3,5 @@ export interface Escolaridade {
     criadoEm?: string;
     atualizadoEm?: string;
     descricao: string;
-    link: string;
+    link?: string;
 }
