@@ -1,8 +1,191 @@
-<p>aluno-create works!</p>
-<button mat-raised-button (click)="cancel()">
-  Cancelar
-</button>
+<mat-card>
+  <mat-card-header>Cadastro de Aluno</mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Nome"
+          [(ngModel)]="aluno.nome"
+          name="nome"
+          required
+        />
+      </mat-form-field>
 
-<button mat-raised-button (click)="createAluno()" color="primary">
-  Salvar
-</button>
+      <mat-form-field>
+        <input matInput placeholder="CPF" [(ngModel)]="aluno.cpf" name="cpf" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Data de Nascimento"
+          [(ngModel)]="aluno.dataDeNascimento"
+          name="dataDeNascimento"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="E-mail"
+          [(ngModel)]="aluno.email"
+          name="email"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Telefone Celular"
+          [(ngModel)]="aluno.telefone1"
+          name="telefone1"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Telefone Residencial"
+          [(ngModel)]="aluno.telefone2"
+          name="telefone2"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Telefone Comercial"
+          [(ngModel)]="aluno.telefone3"
+          name="telefone3"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="RG" [(ngModel)]="aluno.rg" name="rg" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Órgão de Emissão"
+          [(ngModel)]="aluno.orgaoRg"
+          name="orgaoRg"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Escolaridade</mat-label>
+        <mat-select
+          [(ngModel)]="aluno.escolaridadeId"
+          name="escolaridade"
+          required
+        >
+          <mat-option
+            *ngFor="let escolaridade of escolaridades"
+            [value]="escolaridade.id"
+          >
+            {{ escolaridade.descricao }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Profissão</mat-label>
+        <mat-select [(ngModel)]="aluno.profissaoId" name="profissao" required>
+          <mat-option
+            *ngFor="let profissao of profissoes"
+            [value]="profissao.id"
+          >
+            {{ profissao.descricao }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Sexo</mat-label>
+        <mat-select [(ngModel)]="aluno.sexo" name="sexo" required>
+          <mat-option *ngFor="let sexo of sexos" [value]="sexo">
+            {{ sexo }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Estado Civil</mat-label>
+        <mat-select [(ngModel)]="aluno.estadoCivil" name="estadoCivil" required>
+          <mat-option
+            *ngFor="let estadoCivil of estadosCivis"
+            [value]="estadoCivil"
+          >
+            {{ estadoCivil }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="CEP"
+          [(ngModel)]="aluno.endereco.cep"
+          name="cep"
+          (blur)="consultaCep()"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Logradouro"
+          [(ngModel)]="aluno.endereco.street"
+          name="street"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Estado"
+          [(ngModel)]="aluno.endereco.state"
+          name="state"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Cidade"
+          [(ngModel)]="aluno.endereco.city"
+          name="city"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Bairro"
+          [(ngModel)]="aluno.endereco.neighborhood"
+          name="neighborhood"
+      /></mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Número"
+          [(ngModel)]="aluno.endereco.numero"
+          name="numero"
+      /></mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Complemento"
+          [(ngModel)]="aluno.endereco.complemento"
+          name="complemento"
+        />
+      </mat-form-field>
+
+      <button mat-raised-button (click)="cancel()">Cancelar</button>
+      <button mat-raised-button (click)="createAluno()" color="primary">
+        Salvar
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

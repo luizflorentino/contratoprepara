@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Aluno } from '../aluno.model';
-import { Endereco } from '../../endereco/endereco.model';
 import { Escolaridade } from '../../escolaridade/escolaridade.model';
 import { Profissao } from '../../profissao/profissao.model';
 import { AlunoService } from '../aluno.service';
+import { EscolaridadeService } from '../../escolaridade/escolaridade.service';
+import { AuxiliaFormsService } from '../../auxilia-forms/auxilia-forms.service';
+import { ProfissaoService } from '../../profissao/profissao.service';
+import { EnderecoService } from '../../endereco/endereco.service';
+import { Endereco } from '../../endereco/endereco.model';
 
 @Component({
   selector: 'app-aluno-create',
@@ -12,37 +16,43 @@ import { AlunoService } from '../aluno.service';
   styleUrls: ['./aluno-create.component.css']
 })
 export class AlunoCreateComponent implements OnInit {
+  aluno: Aluno = new Aluno();
 
-  aluno: Aluno = {
-    nome: "Paula Maria",
-    dataDeNascimento: new Date(1983, 12, 4),
-    email: "paulinhafnunes@gmail.com",
-    telefone1: "83999858255",
-    estadoCivil: "CASADO",
-    sexo: "FEMININO",
-    profissao: {
-      id: 1,
-      descricao: "",
-    },
-    escolaridade: {
-      id: 1,
-      descricao: "",
-    },
-    endereco: {
-      bairro: "Manaíra",
-      cep: "58038381",
-      cidade: "João Pessoa",
-      estado: "PB",
-      logradouro: "Avenida Sapé",
-      numero: "953"
-    }
-  };
+  escolaridades: Escolaridade[] | undefined;
+  profissoes: Profissao[] | undefined;
+  sexos: string[] | undefined;
+  estadosCivis: string[] | undefined;
 
   constructor(
     private alunoService: AlunoService,
+    private auxiliaFormsService: AuxiliaFormsService,
+    private profissaoService: ProfissaoService,
+    private escolaridadeService: EscolaridadeService,
+    private enderecoService: EnderecoService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.escolaridadeService.list().subscribe(escolaridades => {
+      this.escolaridades = escolaridades;
+    });
+    this.profissaoService.list().subscribe(profissoes => {
+      this.profissoes = profissoes;
+    });
+    this.auxiliaFormsService.estadosCivis().subscribe(estadosCivis => {
+      this.estadosCivis = estadosCivis;
+    });
+    this.auxiliaFormsService.sexos().subscribe(sexos => {
+      this.sexos = sexos;
+    });
+  }
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  consultaCep() {
+    this.enderecoService.consultaCep(this.aluno.endereco.cep).subscribe(endereco => {
+      this.aluno.endereco = endereco;
+    });
   }
 
   createAluno(): void {
@@ -55,5 +65,4 @@ export class AlunoCreateComponent implements OnInit {
   cancel(): void {
     this.router.navigate(['/alunos']);
   }
-
 }

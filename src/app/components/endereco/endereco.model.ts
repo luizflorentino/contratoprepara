@@ -1,13 +1,13 @@
-export interface Endereco {
+export class Endereco {
     id?: number;
     criadoEm?: Date;
     atualizadoEm?: Date;
-    logradouro: string;
-    numero: string;
-    bairro: string;
-    cep: string;
-    cidade: string;
-    estado: string;
-    complemento?: string;
-    link?: string;
+    street: string = "";
+    numero: string = "";
+    neighborhood: string = "";
+    cep: string = "";
+    city: string = "";
+    state: string = "";
+    complemento: string = "";
+    link: string = "";
 }
