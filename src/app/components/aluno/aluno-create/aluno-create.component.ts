@@ -52,6 +52,11 @@ export class AlunoCreateComponent implements OnInit {
     console.log(this.aluno);
   }
 
+  getEstadoCivil(estadoCivil: string): void {
+    this.aluno.estadoCivil = estadoCivil;
+    console.log(this.aluno);
+  }
+
   createAluno(): void {
     this.alunoService.create(this.aluno).subscribe(() => {
       this.alunoService.exibeMensagem("Aluno salvo com sucesso.");

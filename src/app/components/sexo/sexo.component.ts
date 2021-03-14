@@ -29,8 +29,8 @@ export class SexoComponent implements OnInit {
     );
   }
 
-  onChange(sexo: string) {
-    this.sexo = this.sexos.find(e => sexo === sexo);
+  onChange(sexoRecebido: string) {
+    this.sexo = this.sexos.find(s => sexoRecebido === s);
     this.sexoResult.next(this.sexo);
   }
 

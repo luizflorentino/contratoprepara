@@ -82,17 +82,7 @@
 
       <app-sexo (sexoResult)="getSexo($event)"></app-sexo>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Estado Civil</mat-label>
-        <mat-select [(ngModel)]="aluno.estadoCivil" name="estadoCivil" required>
-          <mat-option
-            *ngFor="let estadoCivil of estadosCivis"
-            [value]="estadoCivil"
-          >
-            {{ estadoCivil }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <app-estado-civil (estadoCivilResult)="getEstadoCivil($event)"></app-estado-civil>
 
       <app-endereco (enderecoResult)="getEndereco($event)"></app-endereco>
 
