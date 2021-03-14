@@ -26,4 +26,8 @@ export class AlunoService {
   create(aluno: Aluno): Observable<Aluno> {
     return this.http.post<Aluno>(this.baseUrl, aluno);
   }
+
+  listAll(): Observable<Aluno[]> {
+    return this.http.get<Aluno[]>(this.baseUrl);
+  }
 }

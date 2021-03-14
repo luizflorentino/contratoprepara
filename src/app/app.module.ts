@@ -10,10 +10,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //app components
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
+import { AlunoCrudComponent } from './views/aluno-crud/aluno-crud.component';
 import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-create.component';
+import { AlunoReadComponent } from './components/aluno/aluno-read/aluno-read.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
-import { AlunoCrudComponent } from './views/aluno-crud/aluno-crud.component';
 import { EnderecoComponent } from './components/endereco/endereco.component';
 import { ProfissaoComponent } from './components/profissao/profissao.component';
 import { EscolaridadeComponent } from './components/escolaridade/escolaridade.component';
@@ -35,6 +36,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -45,6 +49,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     HomeComponent,
     AlunoCrudComponent,
     AlunoCreateComponent,
+    AlunoReadComponent,
     EnderecoComponent,
     ProfissaoComponent,
     EscolaridadeComponent,
@@ -71,7 +76,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
