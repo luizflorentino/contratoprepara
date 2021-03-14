@@ -4,17 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { AlunoCrudComponent } from './views/aluno-crud/aluno-crud.component';
 import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-create.component';
+import { ResponsavelCrudComponent } from './views/responsavel-crud/responsavel-crud.component';
+import { ResponsavelCreateComponent } from './components/responsavel/responsavel-create/responsavel-create.component';
 
 const routes: Routes = [
-  {
-    path: "", component: HomeComponent
-  },
-  {
-    path: "alunos", component: AlunoCrudComponent
-  },
-  {
-    path: "alunos/novo", component: AlunoCreateComponent
-  }
+  { path: "", component: HomeComponent },
+  { path: "alunos", component: AlunoCrudComponent },
+  { path: "alunos/novo", component: AlunoCreateComponent },
+  { path: "responsaveis", component: ResponsavelCrudComponent },
+  { path: "responsaveis/novo", component: ResponsavelCreateComponent }
 ];
 
 @NgModule({

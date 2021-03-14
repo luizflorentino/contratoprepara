@@ -1,0 +1,95 @@
+<mat-card>
+  <mat-card-header>Cadastro de responsável</mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Nome"
+          [(ngModel)]="responsavel.nome"
+          name="nome"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="CPF" [(ngModel)]="responsavel.cpf" name="cpf" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Data de Nascimento"
+          [(ngModel)]="responsavel.dataDeNascimento"
+          name="dataDeNascimento"
+          required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker
+      ></mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="E-mail"
+          [(ngModel)]="responsavel.email"
+          name="email"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Telefone Celular"
+          [(ngModel)]="responsavel.telefone1"
+          name="telefone1"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Telefone Residencial"
+          [(ngModel)]="responsavel.telefone2"
+          name="telefone2"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Telefone Comercial"
+          [(ngModel)]="responsavel.telefone3"
+          name="telefone3"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="RG" [(ngModel)]="responsavel.rg" name="rg" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Órgão de Emissão"
+          [(ngModel)]="responsavel.orgaoRg"
+          name="orgaoRg"
+        />
+      </mat-form-field>
+
+      <app-escolaridade
+        (escolaridadeResult)="setEscolaridade($event)"
+      ></app-escolaridade>
+      <app-profissao (profissaoResult)="setProfissao($event)"></app-profissao>
+      <app-sexo (sexoResult)="setSexo($event)"></app-sexo>
+      <app-estado-civil
+        (estadoCivilResult)="setEstadoCivil($event)"
+      ></app-estado-civil>
+      <app-endereco (enderecoResult)="setEndereco($event)"></app-endereco>
+
+      <button mat-raised-button (click)="cancel()">Cancelar</button>
+      <button mat-raised-button (click)="createResponsavel()" color="primary">
+        Salvar
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
