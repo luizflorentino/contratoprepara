@@ -4,10 +4,7 @@ import { Aluno } from '../aluno.model';
 import { Escolaridade } from '../../escolaridade/escolaridade.model';
 import { Profissao } from '../../profissao/profissao.model';
 import { AlunoService } from '../aluno.service';
-import { EscolaridadeService } from '../../escolaridade/escolaridade.service';
 import { AuxiliaFormsService } from '../../auxilia-forms/auxilia-forms.service';
-import { ProfissaoService } from '../../profissao/profissao.service';
-import { EnderecoService } from '../../endereco/endereco.service';
 import { Endereco } from '../../endereco/endereco.model';
 
 @Component({
@@ -18,21 +15,15 @@ import { Endereco } from '../../endereco/endereco.model';
 export class AlunoCreateComponent implements OnInit {
 
   aluno: Aluno = new Aluno();
-  escolaridades: Escolaridade[];
-  profissoes: Profissao[];
   sexos: string[];
   estadosCivis: string[];
 
   constructor(
     private alunoService: AlunoService,
     private auxiliaFormsService: AuxiliaFormsService,
-    private profissaoService: ProfissaoService,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.profissaoService.list().subscribe(profissoes => {
-      this.profissoes = profissoes;
-    });
     this.auxiliaFormsService.estadosCivis().subscribe(estadosCivis => {
       this.estadosCivis = estadosCivis;
     });
@@ -46,9 +37,13 @@ export class AlunoCreateComponent implements OnInit {
     console.log(this.aluno);
   }
 
-
   getEscolaridade(escolaridade: Escolaridade): void {
     this.aluno.escolaridade = escolaridade;
+    console.log(this.aluno);
+  }
+
+  getProfissao(profissao: Profissao): void {
+    this.aluno.profissao = profissao;
     console.log(this.aluno);
   }
 

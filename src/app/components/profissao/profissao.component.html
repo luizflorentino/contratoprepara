@@ -1,1 +1,19 @@
-<p>profissao works!</p>
+<fieldset [disabled]="isLoading">
+    <mat-form-field appearance="fill">
+      <mat-label>Profissão</mat-label>
+      <mat-select
+        [ngModel]="profissao.id"
+        name="profissao"
+        (ngModelChange)="onChange($event)"
+        required
+      >
+        <mat-option
+          *ngFor="let profissao of profissoes"
+          [value]="profissao.id"
+        >
+          {{ profissao.descricao }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </fieldset>
+  

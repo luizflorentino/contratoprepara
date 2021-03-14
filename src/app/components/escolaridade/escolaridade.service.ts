@@ -15,12 +15,4 @@ export class EscolaridadeService {
   list(): Observable<Escolaridade[]> {
     return this.http.get<Escolaridade[]>(this.baseUrl);
   }
-
-  async list1(cep: string): Promise<Escolaridade> {
-    const response = await this.http.get<Escolaridade>(this.baseUrl)
-      .toPromise();
-
-    console.log(response);
-    return null;
-  }
 }

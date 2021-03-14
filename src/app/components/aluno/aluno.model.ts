@@ -1,5 +1,6 @@
 import { Endereco } from "../endereco/endereco.model"
 import { Escolaridade } from "../escolaridade/escolaridade.model";
+import { Profissao } from "../profissao/profissao.model";
 
 export class Aluno {
     id: number;
@@ -17,7 +18,7 @@ export class Aluno {
     orgaoRg: string;
     cpf: string;
     link: string;
-    profissaoId: number;
+    profissao: Profissao;
     escolaridade: Escolaridade;
     endereco: Endereco;
 }
