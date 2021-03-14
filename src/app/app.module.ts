@@ -14,6 +14,7 @@ import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-crea
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
 import { AlunoCrudComponent } from './views/aluno-crud/aluno-crud.component';
+import { EnderecoComponent } from './components/endereco/endereco.component';
 
 // material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -26,8 +27,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatSelectModule } from '@angular/material/select';
     NavComponent,
     HomeComponent,
     AlunoCrudComponent,
-    AlunoCreateComponent
+    AlunoCreateComponent,
+    EnderecoComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

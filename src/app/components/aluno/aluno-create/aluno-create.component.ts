@@ -16,12 +16,12 @@ import { Endereco } from '../../endereco/endereco.model';
   styleUrls: ['./aluno-create.component.css']
 })
 export class AlunoCreateComponent implements OnInit {
-  aluno: Aluno = new Aluno();
 
-  escolaridades: Escolaridade[] | undefined;
-  profissoes: Profissao[] | undefined;
-  sexos: string[] | undefined;
-  estadosCivis: string[] | undefined;
+  aluno: Aluno = new Aluno();
+  escolaridades: Escolaridade[];
+  profissoes: Profissao[];
+  sexos: string[];
+  estadosCivis: string[];
 
   constructor(
     private alunoService: AlunoService,
@@ -45,14 +45,10 @@ export class AlunoCreateComponent implements OnInit {
       this.sexos = sexos;
     });
   }
-  delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
 
-  consultaCep() {
-    this.enderecoService.consultaCep(this.aluno.endereco.cep).subscribe(endereco => {
-      this.aluno.endereco = endereco;
-    });
+  getEndereco(endereco: Endereco): void {
+    this.aluno.endereco = endereco;
+    console.log(this.aluno);
   }
 
   createAluno(): void {

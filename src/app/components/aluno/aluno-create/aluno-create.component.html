@@ -19,11 +19,14 @@
       <mat-form-field>
         <input
           matInput
+          [matDatepicker]="picker"
           placeholder="Data de Nascimento"
           [(ngModel)]="aluno.dataDeNascimento"
           name="dataDeNascimento"
-        />
-      </mat-form-field>
+          required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker
+      ></mat-form-field>
 
       <mat-form-field>
         <input
@@ -122,65 +125,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="CEP"
-          [(ngModel)]="aluno.endereco.cep"
-          name="cep"
-          (blur)="consultaCep()"
-        />
-      </mat-form-field>
-
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Logradouro"
-          [(ngModel)]="aluno.endereco.street"
-          name="street"
-        />
-      </mat-form-field>
-
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Estado"
-          [(ngModel)]="aluno.endereco.state"
-          name="state"
-        />
-      </mat-form-field>
-
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Cidade"
-          [(ngModel)]="aluno.endereco.city"
-          name="city"
-        />
-      </mat-form-field>
-
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Bairro"
-          [(ngModel)]="aluno.endereco.neighborhood"
-          name="neighborhood"
-      /></mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Número"
-          [(ngModel)]="aluno.endereco.numero"
-          name="numero"
-      /></mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Complemento"
-          [(ngModel)]="aluno.endereco.complemento"
-          name="complemento"
-        />
-      </mat-form-field>
+      <app-endereco (enderecoResult)="getEndereco($event)"></app-endereco>
 
       <button mat-raised-button (click)="cancel()">Cancelar</button>
       <button mat-raised-button (click)="createAluno()" color="primary">

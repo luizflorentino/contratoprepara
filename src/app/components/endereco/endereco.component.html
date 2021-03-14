@@ -1,0 +1,63 @@
+<fieldset [disabled]="isLoading">
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="CEP"
+      [(ngModel)]="endereco.cep"
+      name="cep"
+      (blur)="consultaCep()"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Logradouro"
+      [(ngModel)]="endereco.logradouro"
+      name="street"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Estado"
+      [(ngModel)]="endereco.estado"
+      name="state"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Cidade"
+      [(ngModel)]="endereco.cidade"
+      name="city"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Bairro"
+      [(ngModel)]="endereco.bairro"
+      name="neighborhood"
+  /></mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Número"
+      [(ngModel)]="endereco.numero"
+      name="numero"
+  /></mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Complemento"
+      [(ngModel)]="endereco.complemento"
+      name="complemento"
+    />
+  </mat-form-field>
+</fieldset>
