@@ -1,4 +1,5 @@
 import { Endereco } from "../endereco/endereco.model"
+import { Escolaridade } from "../escolaridade/escolaridade.model";
 
 export class Aluno {
     id: number;
@@ -17,6 +18,6 @@ export class Aluno {
     cpf: string;
     link: string;
     profissaoId: number;
-    escolaridadeId: number;
+    escolaridade: Escolaridade;
     endereco: Endereco;
 }

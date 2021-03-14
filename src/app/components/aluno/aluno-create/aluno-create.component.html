@@ -76,21 +76,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Escolaridade</mat-label>
-        <mat-select
-          [(ngModel)]="aluno.escolaridadeId"
-          name="escolaridade"
-          required
-        >
-          <mat-option
-            *ngFor="let escolaridade of escolaridades"
-            [value]="escolaridade.id"
-          >
-            {{ escolaridade.descricao }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <app-escolaridade (escolaridadeResult)="getEscolaridade($event)"></app-escolaridade>
 
       <mat-form-field appearance="fill">
         <mat-label>Profissão</mat-label>

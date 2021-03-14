@@ -1,0 +1,18 @@
+<fieldset [disabled]="isLoading">
+  <mat-form-field appearance="fill">
+    <mat-label>Escolaridade</mat-label>
+    <mat-select
+      [ngModel]="escolaridade.id"
+      name="escolaridade"
+      (ngModelChange)="onChange($event)"
+      required
+    >
+      <mat-option
+        *ngFor="let escolaridade of escolaridades"
+        [value]="escolaridade.id"
+      >
+        {{ escolaridade.descricao }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</fieldset>

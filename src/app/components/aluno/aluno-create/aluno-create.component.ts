@@ -27,14 +27,9 @@ export class AlunoCreateComponent implements OnInit {
     private alunoService: AlunoService,
     private auxiliaFormsService: AuxiliaFormsService,
     private profissaoService: ProfissaoService,
-    private escolaridadeService: EscolaridadeService,
-    private enderecoService: EnderecoService,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.escolaridadeService.list().subscribe(escolaridades => {
-      this.escolaridades = escolaridades;
-    });
     this.profissaoService.list().subscribe(profissoes => {
       this.profissoes = profissoes;
     });
@@ -48,6 +43,12 @@ export class AlunoCreateComponent implements OnInit {
 
   getEndereco(endereco: Endereco): void {
     this.aluno.endereco = endereco;
+    console.log(this.aluno);
+  }
+
+
+  getEscolaridade(escolaridade: Escolaridade): void {
+    this.aluno.escolaridade = escolaridade;
     console.log(this.aluno);
   }
 

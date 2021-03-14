@@ -29,6 +29,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ProfissaoComponent } from './components/profissao/profissao.component';
+import { EscolaridadeComponent } from './components/escolaridade/escolaridade.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     HomeComponent,
     AlunoCrudComponent,
     AlunoCreateComponent,
-    EnderecoComponent
+    EnderecoComponent,
+    ProfissaoComponent,
+    EscolaridadeComponent
   ],
   imports: [
     BrowserModule,

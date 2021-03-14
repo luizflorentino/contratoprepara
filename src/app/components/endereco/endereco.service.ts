@@ -11,12 +11,10 @@ export class EnderecoService {
 
   constructor(private http: HttpClient) { }
 
-  consultaCep(cep: string): Promise<Endereco> {
-    return this.http.get<Endereco>(this.cepUrl + cep)
-      .toPromise()
-      .then(response => {
-        return this.converte(response);
-      });
+  async consultaCep(cep: string): Promise<Endereco> {
+    const response = await this.http.get<Endereco>(this.cepUrl + cep)
+      .toPromise();
+    return this.converte(response);
   }
 
   private converte(enderecoApi: any): Endereco {
