@@ -1,0 +1,15 @@
+<fieldset [disabled]="isLoading">
+  <mat-form-field appearance="fill">
+    <mat-label>Sexo</mat-label>
+    <mat-select
+      [ngModel]="sexo"
+      name="sexo"
+      (ngModelChange)="onChange($event)"
+      required
+    >
+      <mat-option *ngFor="let sexo of sexos" [value]="sexo">
+        {{ sexo }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</fieldset>

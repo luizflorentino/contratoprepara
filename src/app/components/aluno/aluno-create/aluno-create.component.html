@@ -80,14 +80,7 @@
 
       <app-profissao (profissaoResult)="getProfissao($event)"></app-profissao>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Sexo</mat-label>
-        <mat-select [(ngModel)]="aluno.sexo" name="sexo" required>
-          <mat-option *ngFor="let sexo of sexos" [value]="sexo">
-            {{ sexo }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <app-sexo (sexoResult)="getSexo($event)"></app-sexo>
 
       <mat-form-field appearance="fill">
         <mat-label>Estado Civil</mat-label>

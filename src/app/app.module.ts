@@ -31,6 +31,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ProfissaoComponent } from './components/profissao/profissao.component';
 import { EscolaridadeComponent } from './components/escolaridade/escolaridade.component';
+import { SexoComponent } from './components/sexo/sexo.component';
+import { EstadoCivilComponent } from './components/estado-civil/estado-civil.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { EscolaridadeComponent } from './components/escolaridade/escolaridade.co
     AlunoCreateComponent,
     EnderecoComponent,
     ProfissaoComponent,
-    EscolaridadeComponent
+    EscolaridadeComponent,
+    SexoComponent,
+    EstadoCivilComponent
   ],
   imports: [
     BrowserModule,

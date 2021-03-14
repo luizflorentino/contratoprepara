@@ -47,6 +47,11 @@ export class AlunoCreateComponent implements OnInit {
     console.log(this.aluno);
   }
 
+  getSexo(sexo: string): void {
+    this.aluno.sexo = sexo;
+    console.log(this.aluno);
+  }
+
   createAluno(): void {
     this.alunoService.create(this.aluno).subscribe(() => {
       this.alunoService.exibeMensagem("Aluno salvo com sucesso.");
