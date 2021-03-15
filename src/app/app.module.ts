@@ -22,6 +22,7 @@ import { SexoComponent } from './components/sexo/sexo.component';
 import { EstadoCivilComponent } from './components/estado-civil/estado-civil.component';
 import { ResponsavelCrudComponent } from './views/responsavel-crud/responsavel-crud.component';
 import { ResponsavelCreateComponent } from './components/responsavel/responsavel-create/responsavel-create.component';
+import { ResponsavelReadComponent } from './components/responsavel/responsavel-read/responsavel-read.component';
 
 // material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -39,7 +40,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { ResponsavelReadComponent } from './components/responsavel/responsavel-read/responsavel-read.component';
 
 @NgModule({
   declarations: [

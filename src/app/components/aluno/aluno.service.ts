@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Aluno } from './aluno.model';
+import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlunoService {
 
-  baseUrl = "http://localhost:8080/api/v1/alunos";
+  baseUrl = environment.apiUrl;
 
   constructor(
     private snackBar: MatSnackBar,

@@ -16,10 +16,15 @@ export class AlunoCreateComponent implements OnInit {
   aluno: Aluno = new Aluno();
   sexos: string[];
   estadosCivis: string[];
+  maxData: Date;
 
   constructor(
     private alunoService: AlunoService,
-    private router: Router) { }
+    private router: Router) {
+    let today = new Date();
+    this.maxData = new Date(today.getFullYear() - 5, today.getMonth(), today.getDay());
+
+  }
 
   ngOnInit(): void { }
 

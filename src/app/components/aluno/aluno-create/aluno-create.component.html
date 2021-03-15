@@ -23,6 +23,7 @@
           placeholder="Data de Nascimento"
           [(ngModel)]="aluno.dataDeNascimento"
           name="dataDeNascimento"
+          [max]="maxData"
           required />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker
