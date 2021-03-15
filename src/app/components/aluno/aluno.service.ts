@@ -10,7 +10,7 @@ import { environment } from './../../../environments/environment';
 })
 export class AlunoService {
 
-  baseUrl = environment.apiUrl;
+  baseUrl = environment.apiUrl + "/alunos";
 
   constructor(
     private snackBar: MatSnackBar,
