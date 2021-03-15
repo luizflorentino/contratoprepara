@@ -39,6 +39,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { ResponsavelReadComponent } from './components/responsavel/responsavel-read/responsavel-read.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { MatSortModule } from '@angular/material/sort';
     SexoComponent,
     EstadoCivilComponent,
     ResponsavelCreateComponent,
-    ResponsavelCrudComponent
+    ResponsavelCrudComponent,
+    ResponsavelReadComponent
   ],
   imports: [
     BrowserModule,

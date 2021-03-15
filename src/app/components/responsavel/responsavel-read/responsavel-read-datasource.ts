@@ -3,18 +3,18 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { Aluno } from '../aluno.model';
+import { Responsavel } from '../responsavel-model';
 
-export class AlunoReadDataSource extends DataSource<Aluno> {
-  data: Aluno[] = [];
+export class ResponsavelReadDataSource extends DataSource<Responsavel> {
+  data: Responsavel[] = [];
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
   constructor() {
     super();
   }
-
-  connect(): Observable<Aluno[]> {
+  
+  connect(): Observable<Responsavel[]> {
     if (this.paginator && this.sort) {
       // Combine everything that affects the rendered data into one update
       // stream for the data-table to consume.
@@ -29,7 +29,7 @@ export class AlunoReadDataSource extends DataSource<Aluno> {
 
   disconnect(): void { }
 
-  private getPagedData(data: Aluno[]): Aluno[] {
+  private getPagedData(data: Responsavel[]): Responsavel[] {
     if (this.paginator) {
       const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
       return data.splice(startIndex, this.paginator.pageSize);
@@ -38,7 +38,7 @@ export class AlunoReadDataSource extends DataSource<Aluno> {
     }
   }
 
-  private getSortedData(data: Aluno[]): Aluno[] {
+  private getSortedData(data: Responsavel[]): Responsavel[] {
     if (!this.sort || !this.sort.active || this.sort.direction === '') {
       return data;
     }

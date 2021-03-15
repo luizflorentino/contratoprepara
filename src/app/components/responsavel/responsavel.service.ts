@@ -26,4 +26,8 @@ export class ResponsavelService {
   create(responsavel: Responsavel): Observable<Responsavel> {
     return this.http.post<Responsavel>(this.baseUrl, responsavel);
   }
+
+  listAll(): Observable<Responsavel[]> {
+    return this.http.get<Responsavel[]>(this.baseUrl);
+  }
 }
