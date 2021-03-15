@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Escolaridade } from './escolaridade.model';
 
 @Injectable({
@@ -8,9 +9,9 @@ import { Escolaridade } from './escolaridade.model';
 })
 export class EscolaridadeService {
 
-  baseUrl = "http://localhost:8080/api/v1/escolaridades";
+  baseUrl = environment.apiUrl + "/escolaridades";
 
-  constructor( private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   list(): Observable<Escolaridade[]> {
     return this.http.get<Escolaridade[]>(this.baseUrl);

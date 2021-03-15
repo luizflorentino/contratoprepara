@@ -2,14 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuxiliaFormsService {
 
-  baseUrl = "http://localhost:8080/api/v1/auxiliaForms";
-  
+  baseUrl = environment.apiUrl + "/auxiliaForms";
+
   constructor(private http: HttpClient) { }
 
   sexos(): Observable<string[]> {

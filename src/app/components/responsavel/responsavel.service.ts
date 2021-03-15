@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Responsavel } from './responsavel-model';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { Responsavel } from './responsavel-model';
 })
 export class ResponsavelService {
 
-  baseUrl = "http://localhost:8080/api/v1/responsaveis";
+  baseUrl = environment.apiUrl + "/responsaveis";
 
   constructor(
     private snackBar: MatSnackBar,
