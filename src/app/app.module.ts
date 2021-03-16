@@ -24,6 +24,7 @@ import { ResponsavelCrudComponent } from './views/responsavel-crud/responsavel-c
 import { ResponsavelCreateComponent } from './components/responsavel/responsavel-create/responsavel-create.component';
 import { ResponsavelReadComponent } from './components/responsavel/responsavel-read/responsavel-read.component';
 import { CursosReadComponent } from './components/curso/cursos-read/cursos-read.component';
+import { CursoAutocompleteComponent } from './components/curso/curso-autocomplete/curso-autocomplete.component';
 
 // material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -42,6 +43,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatRadioModule } from '@angular/material/radio';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { CursoCrudComponent } from './views/curso-crud/curso-crud.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,9 @@ import { MatRadioModule } from '@angular/material/radio';
     ResponsavelCreateComponent,
     ResponsavelCrudComponent,
     ResponsavelReadComponent,
-    CursosReadComponent
+    CursosReadComponent,
+    CursoAutocompleteComponent,
+    CursoCrudComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +76,7 @@ import { MatRadioModule } from '@angular/material/radio';
     ReactiveFormsModule,
     HttpClientModule,
     MatToolbarModule,
+    MatAutocompleteModule,
     MatIconModule,
     MatSidenavModule,
     MatListModule,

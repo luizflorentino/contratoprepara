@@ -1,0 +1,6 @@
+<input matInput [formControl]="control" [matAutocomplete]="auto" />
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-option *ngFor="let curso of cursosFiltrados | async" [value]="curso">
+    {{ curso }}
+  </mat-option>
+</mat-autocomplete>
