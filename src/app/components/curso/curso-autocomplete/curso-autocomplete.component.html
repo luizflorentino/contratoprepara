@@ -1,4 +1,11 @@
-<input matInput [formControl]="control" [matAutocomplete]="auto" />
+<label for="curso">Curso</label>
+<input
+  matInput
+  [formControl]="control"
+  [matAutocomplete]="auto"
+  name="curso"
+  (ngModelChange)="onChange($event)"
+/>
 <mat-autocomplete #auto="matAutocomplete">
   <mat-option *ngFor="let curso of cursosFiltrados | async" [value]="curso">
     {{ curso }}

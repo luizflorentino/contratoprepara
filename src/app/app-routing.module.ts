@@ -7,6 +7,8 @@ import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-crea
 import { ResponsavelCrudComponent } from './views/responsavel-crud/responsavel-crud.component';
 import { ResponsavelCreateComponent } from './components/responsavel/responsavel-create/responsavel-create.component';
 import { CursoCrudComponent } from './views/curso-crud/curso-crud.component';
+import { ContratoCrudComponent } from './views/contrato-crud/contrato-crud.component';
+import { ContratoCreateComponent } from './components/contrato/contrato-create/contrato-create.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -14,7 +16,9 @@ const routes: Routes = [
   { path: "alunos/novo", component: AlunoCreateComponent },
   { path: "responsaveis", component: ResponsavelCrudComponent },
   { path: "responsaveis/novo", component: ResponsavelCreateComponent },
-  { path: "cursos", component: CursoCrudComponent }
+  { path: "cursos", component: CursoCrudComponent },
+  { path: "contratos", component: ContratoCrudComponent },
+  { path: "contratos/novo", component: ContratoCreateComponent },
 ];
 
 @NgModule({

@@ -25,6 +25,9 @@ import { ResponsavelCreateComponent } from './components/responsavel/responsavel
 import { ResponsavelReadComponent } from './components/responsavel/responsavel-read/responsavel-read.component';
 import { CursosReadComponent } from './components/curso/cursos-read/cursos-read.component';
 import { CursoAutocompleteComponent } from './components/curso/curso-autocomplete/curso-autocomplete.component';
+import { CursoCrudComponent } from './views/curso-crud/curso-crud.component';
+import { ContratoCrudComponent } from './views/contrato-crud/contrato-crud.component';
+import { ContratoCreateComponent } from './components/contrato/contrato-create/contrato-create.component';
 
 // material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -43,8 +46,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatRadioModule } from '@angular/material/radio';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { CursoCrudComponent } from './views/curso-crud/curso-crud.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,9 @@ import { CursoCrudComponent } from './views/curso-crud/curso-crud.component';
     ResponsavelReadComponent,
     CursosReadComponent,
     CursoAutocompleteComponent,
-    CursoCrudComponent
+    CursoCrudComponent,
+    ContratoCrudComponent,
+    ContratoCreateComponent
   ],
   imports: [
     BrowserModule,

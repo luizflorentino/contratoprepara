@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
@@ -12,15 +12,20 @@ import { CursoService } from '../curso.service';
 })
 export class CursoAutocompleteComponent implements OnInit {
   control = new FormControl();
-  cursos: string[] = [];
+  nomesDosCursos: string[] = [];
+  cursos: Curso[] = [];
+  curso: Curso;
   cursosFiltrados: Observable<string[]>;
+
+  @Output() cursoResult: EventEmitter<Curso> = new EventEmitter();
 
   constructor(private cursoService: CursoService) { }
 
   ngOnInit() {
     this.cursoService.listAll().subscribe({
       next: (cursos: Curso[]) => {
-        this.cursos = cursos.map(c => c.nome);
+        this.cursos = cursos;
+        this.nomesDosCursos = cursos.map(c => c.nome);
       },
       error: () => {
         alert('Erro tentando listar os alunos');
@@ -30,12 +35,16 @@ export class CursoAutocompleteComponent implements OnInit {
       startWith(''),
       map(value => this._filter(value))
     );
+  }
 
+  onChange(nomeDoCurso: string) {
+    this.curso = this.cursos.find(c => c.nome === nomeDoCurso);
+    this.cursoResult.next(this.curso);
   }
 
   private _filter(value: string): string[] {
     const filterValue = this._normalizeValue(value);
-    return this.cursos.filter(street => this._normalizeValue(street).includes(filterValue));
+    return this.nomesDosCursos.filter(street => this._normalizeValue(street).includes(filterValue));
   }
 
   private _normalizeValue(value: string): string {
