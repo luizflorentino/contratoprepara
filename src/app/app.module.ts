@@ -23,6 +23,7 @@ import { EstadoCivilComponent } from './components/estado-civil/estado-civil.com
 import { ResponsavelCrudComponent } from './views/responsavel-crud/responsavel-crud.component';
 import { ResponsavelCreateComponent } from './components/responsavel/responsavel-create/responsavel-create.component';
 import { ResponsavelReadComponent } from './components/responsavel/responsavel-read/responsavel-read.component';
+import { CursosReadComponent } from './components/curso/cursos-read/cursos-read.component';
 
 // material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -40,6 +41,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { MatSortModule } from '@angular/material/sort';
     EstadoCivilComponent,
     ResponsavelCreateComponent,
     ResponsavelCrudComponent,
-    ResponsavelReadComponent
+    ResponsavelReadComponent,
+    CursosReadComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +84,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatNativeDateModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
