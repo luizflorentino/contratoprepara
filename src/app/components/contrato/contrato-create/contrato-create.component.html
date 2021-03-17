@@ -1,2 +1,11 @@
-<app-curso-autocomplete  (cursoResult)="setCurso($event)"></app-curso-autocomplete>
-<button (click)="log()">Teste</button>
+<app-aluno-autocomplete
+  (alunoResult)="setAluno($event)"
+></app-aluno-autocomplete>
+<br/>
+<app-curso-autocomplete
+  (cursoResult)="setCurso($event)"
+></app-curso-autocomplete>
+
+<div>
+  <button mat-raised-button (click)="log()" color="warn">Teste</button>
+</div>

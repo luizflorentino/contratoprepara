@@ -13,6 +13,7 @@ import { FooterComponent } from './components/template/footer/footer.component';
 import { AlunoCrudComponent } from './views/aluno-crud/aluno-crud.component';
 import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-create.component';
 import { AlunoReadComponent } from './components/aluno/aluno-read/aluno-read.component';
+import { AlunoAutocompleteComponent } from './components/aluno/aluno-autocomplete/aluno-autocomplete.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
 import { EnderecoComponent } from './components/endereco/endereco.component';
@@ -47,6 +48,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips'
 
 @NgModule({
   declarations: [
@@ -70,7 +72,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     CursoAutocompleteComponent,
     CursoCrudComponent,
     ContratoCrudComponent,
-    ContratoCreateComponent
+    ContratoCreateComponent,
+    AlunoAutocompleteComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +98,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatRadioModule
+    MatRadioModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

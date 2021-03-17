@@ -1,15 +1,15 @@
 <mat-form-field>
-  <mat-label>Curso</mat-label>
+  <mat-label>Aluno</mat-label>
   <input
     matInput
     [formControl]="control"
     [matAutocomplete]="auto"
-    name="curso"
+    name="aluno"
     (ngModelChange)="onChange($event)"
   />
   <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let curso of cursosFiltrados | async" [value]="curso">
-      {{ curso }}
+    <mat-option *ngFor="let aluno of alunosFiltrados | async" [value]="aluno">
+      {{ aluno }}
     </mat-option>
   </mat-autocomplete>
 </mat-form-field>
