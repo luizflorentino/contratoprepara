@@ -1,15 +1,24 @@
-<mat-form-field>
-  <mat-label>Curso</mat-label>
-  <input
-    matInput
-    [formControl]="control"
-    [matAutocomplete]="auto"
-    name="curso"
-    (ngModelChange)="onChange($event)"
-  />
-  <mat-autocomplete #auto="matAutocomplete">
+<mat-form-field class="chip-list">
+  <mat-chip-list #chipList>
+    <mat-chip
+      *ngFor="let modulo of cursoSelecionado?.modulos"
+      [selectable]="selectable"
+    >
+      {{ modulo.nome }}
+    </mat-chip><br>
+    <input
+      placeholder="Curso"
+      #cursoInput
+      [formControl]="cursoCtrl"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="add($event)"
+    />
+  </mat-chip-list>
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
     <mat-option *ngFor="let curso of cursosFiltrados | async" [value]="curso">
-      {{ curso }}
+      {{ curso.nome }}
     </mat-option>
   </mat-autocomplete>
 </mat-form-field>

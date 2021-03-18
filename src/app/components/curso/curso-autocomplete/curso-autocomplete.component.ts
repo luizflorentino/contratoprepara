@@ -1,53 +1,87 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
+import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 import { Curso } from '../curso-model';
 import { CursoService } from '../curso.service';
 
+/** 
+ * @title Chips Autocomplete 
+ */
 @Component({
   selector: 'app-curso-autocomplete',
-  templateUrl: './curso-autocomplete.component.html',
-  styleUrls: ['./curso-autocomplete.component.css']
+  templateUrl: 'curso-autocomplete.component.html',
+  styleUrls: ['curso-autocomplete.component.css']
 })
 export class CursoAutocompleteComponent implements OnInit {
-  control = new FormControl();
-  nomesDosCursos: string[] = [];
+  visible = true;
+  selectable = true;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  cursoCtrl = new FormControl();
+  cursosFiltrados: Observable<Curso[]>;
+  cursoSelecionado: Curso;
   cursos: Curso[] = [];
-  curso: Curso;
-  cursosFiltrados: Observable<string[]>;
 
-  @Output() cursoResult: EventEmitter<Curso> = new EventEmitter();
+  @ViewChild('cursoInput') cursoInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
-  constructor(private cursoService: CursoService) { }
+  @Output() cursoResult = new EventEmitter<Curso>();
+
+  constructor(private cursoService: CursoService) {
+    this.cursosFiltrados = this.cursoCtrl.valueChanges.pipe(
+      startWith(null),
+      map((nome: string | null) => nome ? this._filter(nome) : this.cursos.slice()));
+  }
 
   ngOnInit() {
     this.cursoService.listAll().subscribe({
-      next: (cursos: Curso[]) => {
+      next: (cursos) => {
         this.cursos = cursos;
-        this.nomesDosCursos = cursos.map(c => c.nome);
       },
       error: () => {
-        alert('Erro tentando listar os alunos');
+        alert('Erro tentando listar os cursos');
       }
     });
-    this.cursosFiltrados = this.control.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
   }
 
-  onChange(nomeDoCurso: string) {
-    this.curso = this.cursos.find(c => c.nome === nomeDoCurso);
-    this.cursoResult.next(this.curso);
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    if ((value || '').trim()) {
+      this.cursoSelecionado = this.getCursoPorNome(value.trim());
+      this.cursoResult.emit(this.cursoSelecionado);
+    }
+
+    if (input) {
+      input.value = '';
+    }
+
+    this.cursoCtrl.setValue(null);
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = this._normalizeValue(value);
-    return this.nomesDosCursos.filter(street => this._normalizeValue(street).includes(filterValue));
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.cursoSelecionado = this.getCursoPorNome(event.option.viewValue);
+    this.cursoInput.nativeElement.value = this.cursoSelecionado.nome;
+    this.cursoCtrl.setValue(null);
+    this.cursoResult.emit(this.cursoSelecionado);
   }
 
-  private _normalizeValue(value: string): string {
-    return value.toLowerCase().replace(/\s/g, '');
+  private _filter(value: string): Curso[] {
+    let ret = [];
+
+    if (typeof value === "string") {
+      const filterValue = value.toLowerCase();
+      ret = this.cursos.filter(c => c.nome.toLowerCase().indexOf(filterValue) === 0)
+    }
+
+    return ret;
+  }
+
+  private getCursoPorNome(nome: string): Curso {
+    return this.cursos.find(curso => curso.nome === nome);
   }
 }

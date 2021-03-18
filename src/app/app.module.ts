@@ -25,8 +25,8 @@ import { ResponsavelCrudComponent } from './views/responsavel-crud/responsavel-c
 import { ResponsavelCreateComponent } from './components/responsavel/responsavel-create/responsavel-create.component';
 import { ResponsavelReadComponent } from './components/responsavel/responsavel-read/responsavel-read.component';
 import { CursosReadComponent } from './components/curso/cursos-read/cursos-read.component';
-import { CursoAutocompleteComponent } from './components/curso/curso-autocomplete/curso-autocomplete.component';
 import { CursoCrudComponent } from './views/curso-crud/curso-crud.component';
+import { CursoAutocompleteComponent } from './components/curso/curso-autocomplete/curso-autocomplete.component';
 import { ContratoCrudComponent } from './views/contrato-crud/contrato-crud.component';
 import { ContratoCreateComponent } from './components/contrato/contrato-create/contrato-create.component';
 
@@ -48,7 +48,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatChipsModule } from '@angular/material/chips'
+import { MatChipsModule } from '@angular/material/chips';
+import { MatBadgeModule } from '@angular/material/badge';
+
 
 @NgModule({
   declarations: [
@@ -99,7 +101,8 @@ import { MatChipsModule } from '@angular/material/chips'
     MatPaginatorModule,
     MatSortModule,
     MatRadioModule,
-    MatChipsModule
+    MatChipsModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
