@@ -34,6 +34,7 @@ export class CursoAutocompleteComponent implements OnInit {
     this.cursosFiltrados = this.cursoCtrl.valueChanges.pipe(
       startWith(null),
       map((nome: string | null) => nome ? this._filter(nome) : this.cursos.slice()));
+
   }
 
   ngOnInit() {

@@ -5,18 +5,20 @@
       [selectable]="selectable"
     >
       {{ modulo.nome }}
-    </mat-chip><br>
-    <input
-      placeholder="Curso"
-      #cursoInput
-      [formControl]="cursoCtrl"
-      [matAutocomplete]="auto"
-      [matChipInputFor]="chipList"
-      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-      (matChipInputTokenEnd)="add($event)"
-    />
+    </mat-chip>
   </mat-chip-list>
-  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+  <input
+    #cursoInput
+    placeholder="Curso"
+    [formControl]="cursoCtrl"
+    [matAutocomplete]="auto"
+    [matChipInputFor]="chipList"
+    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+    (matChipInputTokenEnd)="add($event)"
+  /><mat-autocomplete
+    #auto="matAutocomplete"
+    (optionSelected)="selected($event)"
+  >
     <mat-option *ngFor="let curso of cursosFiltrados | async" [value]="curso">
       {{ curso.nome }}
     </mat-option>
