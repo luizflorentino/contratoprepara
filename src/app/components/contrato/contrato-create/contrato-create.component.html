@@ -1,10 +1,11 @@
 <app-aluno-autocomplete
   (alunoResult)="setAluno($event)"
 ></app-aluno-autocomplete>
-<br/>
+<br />
 <app-curso-autocomplete
   (cursoResult)="setCurso($event)"
 ></app-curso-autocomplete>
+<app-exibe-modulos [curso]="contrato.curso"></app-exibe-modulos>
 
 <div>
   <button mat-raised-button (click)="log()" color="warn">Teste</button>

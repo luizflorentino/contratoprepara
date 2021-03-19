@@ -50,6 +50,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatBadgeModule } from '@angular/material/badge';
+import { SelecionaModuloComponent } from './components/curso/curso-autocomplete/seleciona-modulo/seleciona-modulo.component';
+import { ExibeModulosComponent } from './components/curso/exibe-modulos/exibe-modulos.component';
 
 
 @NgModule({
@@ -75,7 +77,9 @@ import { MatBadgeModule } from '@angular/material/badge';
     CursoCrudComponent,
     ContratoCrudComponent,
     ContratoCreateComponent,
-    AlunoAutocompleteComponent
+    AlunoAutocompleteComponent,
+    SelecionaModuloComponent,
+    ExibeModulosComponent
   ],
   imports: [
     BrowserModule,

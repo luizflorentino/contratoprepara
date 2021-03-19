@@ -1,0 +1,19 @@
+<mat-form-field *ngIf="curso.id === idCursoPersonalizado" class="full-width">
+  <mat-label>Modulos</mat-label>
+  <input
+    type="text"
+    placeholder="Selecione os módulos"
+    aria-label="Number"
+    matInput
+    [formControl]="moduloCtrl"
+    [matAutocomplete]="auto"
+  />
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let option of nomesDosModulosFiltrados | async"
+      [value]="option"
+    >
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
