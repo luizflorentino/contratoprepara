@@ -1,7 +1,17 @@
-<div>
-  <ul *ngIf="curso">
-    <li *ngFor="let modulo of curso.modulos">
+<mat-list role="list" *ngIf="curso">
+  <mat-list-item role="listitem" *ngFor="let modulo of curso.modulos">
+    <div mat-line>
       {{ modulo.nome }}
-    </li>
-  </ul>
-</div>
+      <button mat-raised-button>
+        <mat-icon
+          mat-list-icon
+          *ngIf="curso.id === 4"
+          color="warn"
+          (click)="remover(modulo)"
+        >
+          delete
+        </mat-icon>
+      </button>
+    </div>
+  </mat-list-item>
+</mat-list>
