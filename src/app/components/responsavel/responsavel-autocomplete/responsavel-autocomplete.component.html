@@ -1,0 +1,18 @@
+<mat-form-field>
+  <mat-label>Responsável</mat-label>
+  <input
+    matInput
+    [formControl]="control"
+    [matAutocomplete]="auto"
+    name="responsavel"
+    (ngModelChange)="onChange($event)"
+  />
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let responsavel of responsaveisFiltrados | async"
+      [value]="responsavel"
+    >
+      {{ responsavel }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

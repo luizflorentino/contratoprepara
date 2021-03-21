@@ -52,6 +52,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatBadgeModule } from '@angular/material/badge';
 import { SelecionaModuloComponent } from './components/curso/curso-autocomplete/seleciona-modulo/seleciona-modulo.component';
 import { ExibeModulosComponent } from './components/curso/exibe-modulos/exibe-modulos.component';
+import { ResponsavelAutocompleteComponent } from './components/responsavel/responsavel-autocomplete/responsavel-autocomplete.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { ExibeModulosComponent } from './components/curso/exibe-modulos/exibe-mo
     ContratoCreateComponent,
     AlunoAutocompleteComponent,
     SelecionaModuloComponent,
-    ExibeModulosComponent
+    ExibeModulosComponent,
+    ResponsavelAutocompleteComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,6 @@ export class ExibeModulosComponent implements OnInit {
 
   remover(modulo: Modulo): void {
     const index = this.curso.modulos.indexOf(modulo);
-    console.log(modulo +" - " + index);
 
     if (index >= 0) {
       this.curso.modulos.splice(index, 1);
