@@ -29,6 +29,9 @@ import { CursoCrudComponent } from './views/curso-crud/curso-crud.component';
 import { CursoAutocompleteComponent } from './components/curso/curso-autocomplete/curso-autocomplete.component';
 import { ContratoCrudComponent } from './views/contrato-crud/contrato-crud.component';
 import { ContratoCreateComponent } from './components/contrato/contrato-create/contrato-create.component';
+import { SelecionaModuloComponent } from './components/curso/curso-autocomplete/seleciona-modulo/seleciona-modulo.component';
+import { ExibeModulosComponent } from './components/curso/exibe-modulos/exibe-modulos.component';
+import { ResponsavelAutocompleteComponent } from './components/responsavel/responsavel-autocomplete/responsavel-autocomplete.component';
 
 // material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -50,9 +53,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatBadgeModule } from '@angular/material/badge';
-import { SelecionaModuloComponent } from './components/curso/curso-autocomplete/seleciona-modulo/seleciona-modulo.component';
-import { ExibeModulosComponent } from './components/curso/exibe-modulos/exibe-modulos.component';
-import { ResponsavelAutocompleteComponent } from './components/responsavel/responsavel-autocomplete/responsavel-autocomplete.component';
+import { MatStepperModule } from '@angular/material/stepper';
 
 
 @NgModule({
@@ -108,7 +109,8 @@ import { ResponsavelAutocompleteComponent } from './components/responsavel/respo
     MatSortModule,
     MatRadioModule,
     MatChipsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

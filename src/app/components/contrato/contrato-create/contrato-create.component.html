@@ -1,18 +1,38 @@
-<app-aluno-autocomplete
-  (alunoResult)="setAluno($event)"
-></app-aluno-autocomplete>
-<br />
-
-<app-responsavel-autocomplete
-  (responsavelResult)="setResponsavel($event)"
-></app-responsavel-autocomplete>
-
-<br />
-<app-curso-autocomplete
-  (cursoResult)="setCurso($event)"
-></app-curso-autocomplete>
-<app-exibe-modulos [curso]="contrato.curso"></app-exibe-modulos>
-
+<mat-horizontal-stepper #stepper color="warn">
+  <mat-step>
+    <ng-template matStepLabel>Aluno</ng-template>
+    <app-aluno-autocomplete
+      (alunoResult)="setAluno($event)"
+    ></app-aluno-autocomplete>
+    <div>
+      <button mat-button matStepperNext>Próximo</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Responsável</ng-template>
+    <app-responsavel-autocomplete
+      (responsavelResult)="setResponsavel($event)"
+    ></app-responsavel-autocomplete>
+    <div>
+      <button mat-button matStepperPrevious>Voltar</button>
+      <button mat-button matStepperNext>Próximo</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Curso</ng-template
+    ><app-curso-autocomplete
+      (cursoResult)="setCurso($event)"
+    ></app-curso-autocomplete>
+    <app-exibe-modulos [curso]="contrato.curso"></app-exibe-modulos>
+    <div>
+      <button mat-button matStepperPrevious>Voltar</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div> </mat-step
+  ><mat-step> <ng-template matStepLabel>Horário</ng-template> </mat-step
+  ><mat-step>
+    <ng-template matStepLabel>Financeiro</ng-template>
+  </mat-step>
+</mat-horizontal-stepper>
 <div>
   <button mat-raised-button (click)="log()" color="warn">Teste</button>
 </div>

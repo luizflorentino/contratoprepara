@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Aluno } from '../../aluno/aluno.model';
 import { Curso } from '../../curso/curso-model';
 import { Responsavel } from '../../responsavel/responsavel-model';
@@ -15,8 +16,7 @@ export class ContratoCreateComponent implements OnInit {
 
   constructor(private contratoService: ContratoService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() { }
 
   log() {
     console.log(this.contrato);
